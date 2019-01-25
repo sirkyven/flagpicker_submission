@@ -18,7 +18,7 @@ Actutor to see the metrics and admin uri
 http://localhost:8080/actuator
 
 
-
+```
 CREATE TABLE IF NOT EXISTS continents (
 	ID SERIAL PRIMARY KEY DEFAULT,
 	name varchar(40) NOT NULL CHECK (name <> '')
@@ -36,3 +36,4 @@ insert into countries(name, flag, continent_ID) values("South Africa", "🇿🇦
 
 select name, flag from countries 
 where continent_id = (select ID from continents where name="africa")
+```
