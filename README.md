@@ -1,5 +1,7 @@
 # flagpicker_submission
-flag picker rest api \n
+flag picker rest api
+
+
 Please ensure that you have installed Lombok plugin https://projectlombok.org/setup/intellij
 
 Open up in intellij and run the spring boot application class #FlagPickerApplication and then use the following links to see the flags returned
