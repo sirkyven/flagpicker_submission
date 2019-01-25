@@ -14,8 +14,12 @@ uri to get country specific flag use the following uri
 http://localhost:8080/flags/country/{name}
 example : http://localhost:8080/flags/country/india
 
-Actutor to see the metrics and admin uri
+Actutor to see the metrics and admin uri (bonus)
 http://localhost:8080/actuator
+
+
+to see the stats (bonus)
+http:localhost:8080/flags/status-metric
 
 
 ```
