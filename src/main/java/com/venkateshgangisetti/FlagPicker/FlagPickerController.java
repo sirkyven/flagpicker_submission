@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -17,10 +18,11 @@ public class FlagPickerController {
     Logger logger = LoggerFactory.getLogger(FlagPickerController.class);
 
     private FlagServiceRepository flagServiceRepository;
-
+    private MetricService metricService;
     @Autowired
-    FlagPickerController(FlagServiceRepository flagServiceRepository) {
+    FlagPickerController(FlagServiceRepository flagServiceRepository, MetricService metricService) {
         this.flagServiceRepository = flagServiceRepository;
+        this.metricService = metricService;
     }
 
     @GetMapping("/country/{name}")
@@ -44,5 +46,13 @@ public class FlagPickerController {
         if (optCountry.isPresent()) {
             return new ResponseEntity<>(optCountry.get(), HttpStatus.OK);
         }
-        return new ResponseEntity<>(HttpStatus.NOT_FOUND);    }
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+
+    //TODO:enable this only admin by changing in security config
+    @RequestMapping(value = "/status-metric", method = RequestMethod.GET)
+    @ResponseBody
+    public Map getStatusMetric() {
+        return metricService.getFullMetric();
+    }
 }
